@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - IBAN e Intestatario</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .qr-code {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+        }
+        .account-details {
+            margin-bottom: 30px;
+        }
+        .account-details h5 {
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="qr-code">
+        <h4> Coordinate bancarie <br>
+      </br>Steps Of Dance Store</h4>
+        <img src="data:image/png;base64,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" alt="QR Code">
+    </div>
+
+    <div class="account-details">
+        <h5>Conto 1</h5>
+        <div class="form-group">
+            <label for="iban1">IBAN:</label>
+            <input type="text" class="form-control" id="iban1" value="IT42F3608105138217633217647" readonly>
+        </div>
+        <div class="form-group">
+            <label for="intestatario1">Intestatario:</label>
+            <input type="text" class="form-control" id="intestatario1" value="Arena Santo" readonly>
+        </div>
+    </div>
+
+    <div class="account-details">
+        <h5>Conto 2</h5>
+        <div class="form-group">
+            <label for="iban2">IBAN:</label>
+            <input type="text" class="form-control" id="iban2" value="IT96W0200809500000421442629" readonly>
+        </div>
+        <div class="form-group">
+            <label for="intestatario2">Intestatario:</label>
+            <input type="text" class="form-control" id="intestatario2" value="Giacomo Gianluca Arena" readonly>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Steps of Dance Store. Tutti i diritti riservati.</p>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
